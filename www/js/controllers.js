@@ -285,12 +285,6 @@ angular.module('starter.controllers', [])
   }).then(function(modal){
     $scope.modalMeiaEntrada = modal
 ;  });
-   $ionicModal.fromTemplateUrl('solicitacao.html',{
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function(modal){
-    $scope.modalSolicitacao = modal;
-  });
   $ionicModal.fromTemplateUrl('templates/cadastro.html', {
     scope: $scope,
     animation: 'slide-in-up'
@@ -303,8 +297,6 @@ angular.module('starter.controllers', [])
       $scope.modalMeusDados.show();
     }else if(modal == 'MeiaEntrada'){
       $scope.modalMeiaEntrada.show();
-    }else if(modal == 'Solicitacao'){
-      $scope.modalSolicitacao.show();
     }else if(modal == 'Cadastro'){
       $scope.modalCadastro.show();
     }
@@ -314,8 +306,6 @@ angular.module('starter.controllers', [])
       $scope.modalMeusDados.hide();
     }else if(modal == 'MeiaEntrada'){
       $scope.modalMeiaEntrada.hide();
-    }else if(modal == 'Solicitacao'){
-      $scope.modalSolicitacao.hide();
     }else if( modal == 'Cadastro'){
       $scope.modalCadastro.hide();
     }
@@ -326,10 +316,10 @@ angular.module('starter.controllers', [])
   }
 
   $scope.solicitacao = function(){
-    if(Usuario.empty()){
+    if(Usuario.logado){
       if(Usuario.filledData($scope.user)){
         $scope.hideModal('MeusDados');
-        $scope.openModal('Solicitacao');
+        $scope.checkout($scope.user.id);
       }else{
         $scope.MeusDados();
         showAlert('UEEGO','Preencha seus dados para solicitar sua Carteira de Identificaçao Estudantil');
@@ -337,6 +327,10 @@ angular.module('starter.controllers', [])
     }else{
       cadastrar();
     }
+  }
+
+  $scope.checkout = function(usuario_id){
+
   }
 
   $scope.MeusDados = function(){
@@ -352,13 +346,6 @@ angular.module('starter.controllers', [])
 
   $scope.init = function(){
     Usuario.init();
-  }
-
-  var graus = 180;
-  $scope.rotate = function(){
-    var cart = document.getElementById("cart");
-    cart.style.transform = "rotateX("+graus+"deg)";
-    graus+=180;
   }
 
   $scope.estudanteAuthenticated = function(){
@@ -470,40 +457,6 @@ function showAlert(text){
   alertPopup.then(function(res){});
 }
 
-})
-
-.controller('SolicitacaoCtrl', function($scope, $ionicPopup){
-  
-  $scope.valorCarteirinha = 20;
-  $scope.valorTotal = 0;
-  $scope.frete = 6;  
-
-  $scope.valorPagar = function(checkboxVersaoDigital, checkboxVersaoImpressa){
-    if(!checkboxVersaoImpressa && !checkboxVersaoDigital){
-     $scope.valorTotal = 0;
-    }else if(checkboxVersaoImpressa){
-     $scope.valorTotal = $scope.valorCarteirinha+$scope.frete;
-    }else{
-     $scope.valorTotal = $scope.valorCarteirinha;
-    }
-    return $scope.valorTotal;
-  }
-
-  $scope.solicitar = function(){
-    showAlert('UEEGO - Carteira de Identificação Estudantil','Um boleto foi gerado e enviado para o seu email. <br> Status da Operação: Aguardando Pagamento')
-    $scope.modalSolicitacao.hide();
-  }
-
-  function showAlert(title,message){
-    var alertPopup = $ionicPopup.alert({
-     title: title,
-     template: message,
-    });
-
-   alertPopup.then(function(res) {
-     
-   });
-  }
 })
 
 .controller('MeiaEntradaCtrl', function($scope){

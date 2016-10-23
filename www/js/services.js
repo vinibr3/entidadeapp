@@ -99,7 +99,7 @@ angular.module('starter.services', [])
   return {
     logado: function(){
       console.log("usuario: "+$localStorage.getObject(KEY));
-      return $localStorage.getObject(KEY) == null;
+      return $localStorage.getObject(KEY) != null;
     },
     init: function(){
       if(empty){
