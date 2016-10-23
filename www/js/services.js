@@ -106,6 +106,9 @@ angular.module('starter.services', [])
         $localStorage.setObject(KEY,USUARIO);
       }
     },
+    logoff: function(){
+      return $localStorage.setObject(KEY, null);
+    },
     setObject: function(user){
       $localStorage.setObject(KEY, user);
     },

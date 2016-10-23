@@ -112,7 +112,7 @@ angular.module('starter.controllers', [])
 
 // Controller Tab Home
 
-.controller('HomeCtrl', function($scope, $cordovaInAppBrowser,  $cordovaContacts, $ionicPopup) {
+.controller('HomeCtrl', function($scope, $cordovaInAppBrowser, $state , $cordovaContacts, $ionicPopup, $ionicHistory, Usuario) {
   
   $scope.contato = {
     endereco: {logradouro: 'Avenida Universitária', numero: 'Nº 1533', setor: 'Setor Leste Universitario', cidade: 'Goiânia', uf: 'Goiás', cep: '74265-250'},
@@ -120,6 +120,24 @@ angular.module('starter.controllers', [])
     telefone: '(62) 3434-2012',
     email: 'contato@ueego.com.br'
   };
+
+  $scope.logoff = function(){
+    var confirmPopup = $ionicPopup.confirm({
+     title: 'Logoff',
+     template: 'Deseja realmente sair da aplicação?',
+     cancelText: 'Não',
+     okText: 'Sim'
+   });
+
+   confirmPopup.then(function(res) {
+     if(res) {
+      Usuario.logoff();
+      $state.go('login');
+      $ionicHistory.clearHistory();
+      $ionicHistory.clearCache();
+     } else {}
+   });
+  }
 
   $scope.showInAppBrowser = function(url){
     $cordovaInAppBrowser.open(url, '_blank', {location: 'yes', clearcach: 'yes', toolbar: 'no'})
