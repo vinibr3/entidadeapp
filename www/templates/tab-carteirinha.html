@@ -1,0 +1,208 @@
+<ion-view view-title="Carteirinha">
+  <ion-nav-buttons side="primary">
+  	<button class="button button-icon icon ion-pin" ng-click="meiaEntrada()"></button>
+  	<button class="button button-icon icon ion-android-cart" ng-click="solicitacao()"></button>
+  	<button class="button button-icon icon ion-person" ng-click="MeusDados()" ng-show="estudanteAuthenticated()"> </button>
+  </ion-nav-buttons>
+  <ion-content class="padding">
+    <div class="flip-cart" ng-click="rotate()" ng-init="carteirinha = user.carteirinha">
+		<div id="cart">
+			<div class="front" style="background-image: url({{carteirinha.layout_front}});">
+				<div class="carteirinha-data" style="transform: rotate(90deg)">
+					<div style="width: 420px; height: 163px;">
+						<div class="carteirinha-foto"><img ng-src="{{carteirinha.foto}}"> </div>
+						<div class="carteirinha-data-right"> 
+							<div class="carteirinha-value">{{carteirinha.nome}}</div>
+							<div class="carteirinha-value">{{carteirinha.instituicao_ensino}}</div>
+							<div class="carteirinha-value">{{carteirinha.curso_serie}}</div>
+							<div style="margin-left: 55px; margin-top: -10px;">{{carteirinha.matricula}}</div>
+							<div style="margin-left: 20px;">{{carteirinha.rg_certidao}} <span style="padding-left:90px;">{{carteirinha.nascimento}}</span></div>
+							<div style="margin-left: 25px;">{{carteirinha.cpf}}</div>
+						</div>
+					</div>
+					<div style="width:420px;height:86px;">
+						<div class="qr-code"></div>
+						<div class="numero-serie"><b>{{carteirinha.numero_serie}}</b></div>
+					</div>
+				</div>
+			</div>
+			<div class="back">
+				<img ng-src="{{carteirinha.layout_back}}" style="border-radius: 10px;">
+			</div>
+		</div>
+	</div>
+  </ion-content>
+</ion-view>
+
+<script id="meus-dados.html" type="text/ng-template">
+	<ion-modal-view ng-controller="MeusDadosCtrl">
+		<ion-header-bar class="bar bar-positive">
+			<button class="button button-icon icon ion-ios-arrow-back" ng-click="hideModal('MeusDados')"></button>
+			<h1 class="title"> Meus Dados </h1>
+			<button class="button button-icon icon ion-checkmark" ng-click="save(user, true)"></button>
+		</ion-header-bar>
+		<ion-content>
+			<ion-list class="list">
+			<div class="item item-divider">Dados Pessoais
+				<i class="icon ion-person" style="float: right; font-size: 25px;"></i>
+			</div>
+			<label class="item item-input item-stacked-label">
+				<span class="input-label">Nome Completo</span>
+				<input type="text" placeholder="..." ng-model="user.nome">
+			</label>
+			<label class="item item-input item-stacked-label">
+				<span class="input-label">Email</span>
+				<input type="email" placeholder="..." ng-model="user.email">
+			</label>
+			<label class="item item-input item-stacked-label">
+				<span class="input-label">Data Nascimento <span>
+				<input type="date" placeholder="..." ng-model="user.nascimento">
+			</label>
+			<label class="item item-input item-stacked-label">
+				<span class="input-label">CPF</span>
+				<input type="number" placeholder="..." ng-model="user.cpf">
+			</label>
+			<label class="item item-input item-stacked-label"> 
+				<span class="input-label">RG/Certidão </span>
+				<input type="number" placeholder="..." ng-model="user.rg_certidao">
+			</label>
+			<label class="item item-input item-select">
+				<div class="input-label color-positive"> Sexo </div>
+				<select ng-model="user.sexo">
+					<option value="masculino"> Masculino </option>
+					<option value="feminino"> Feminino </option>
+				</select>
+			</label>
+			<label class="item item-input item-stacked-label">
+				<span class="input-label">Telefone</span>
+				<input type="tel" placeholder="..." ng-model="user.telefone">
+			</label>
+			<label class="item item-input item-stacked-label">
+				<span class="input-label">Celular</span>
+				<input type="tel" placeholder="..." ng-model="user.celular">
+			</label>
+			<div class="item item-input">
+				<i style="float: left;" class="icon ion-image color-positive"></i>&nbsp;
+				<span class="input-label color-positive">Foto 3x4:</span>
+				<u><span ng-bind="user.foto == ''? '':'foto'"></span></u>
+				<button class="button button-icon icon ion-paperclip" ng-click="getDocument('foto')"></button>
+			</div>
+			<div class="item item-input">
+				<i style="float: left;" class="icon ion-document color-positive"></i>&nbsp;
+				<span class="input-label color-positive">Xerox RG/Certidão:</span>
+				<u><span style="width: 100%" ng-bind="user.xerox_rg_certidao == ''? '':'rg_certidao'"></span></u>
+				<button class="button button-icon icon ion-paperclip" ng-click="getDocument('xerox_rg_certidao')"></button>
+			</div>
+			<div class="item item-divider">Dados Estudantis
+				<i class="icon ion-university" style="float: right; font-size: 25px;"></i>
+			</div>
+			<label class="item item-input item-stacked-label"> 
+				<span class="input-label">Instituição de Ensino</span>
+				<input type="text" placeholder="..." ng-model="user.instituicao_ensino">
+			</label>
+			<label class="item item-input item-stacked-label"> 
+				<span class="input-label">Curso/Série</span>
+				<input type="text" placeholder="..." ng-model="user.curso_serie">
+			</label>
+			<label class="item item-input item-stacked-label"> 
+				<span class="input-label">Matrícula</span>
+				<input type="text" placeholder="..." ng-model="user.matricula">
+			</label>
+			<div class="item item-input">
+				<i style="float: left;" class="icon ion-document color-positive"></i>&nbsp;
+				<span class="input-label color-positive">Comp. Matrícula:</span>
+				<u><span class="pull-right" ng-bind="user.comprovante_matricula == ''? '':'comprovante'"></span></u>
+				<button class="button button-icon icon ion-paperclip" ng-click="getDocument('comprovante_matricula')" style="margin: 0px; padding: 0px;"></button>
+			</div>
+			<div class="item item-divider">Endereço
+				<i class="button-local icon ion-location" style="" ng-click=""></i>
+			</div>
+			<label class="item item-input item-stacked-label">
+				<span class="input-label"> Logradouro </span>
+				<input type="text" placeholder="..." ng-model="user.endereco.logradouro">
+			</label>
+			<label class="item item-input item-stacked-label" >
+				<span class="input-label item-stacked-label"> Número</span>
+				<input type="number" placeholder="..." ng-model="user.endereco.numero">
+			</label>
+			<label class="item item-input item-stacked-label">
+				<span class="input-label item-stacked-label"> Complemento </span>
+				<input type="text" placeholder="..."  ng-model="user.endereco.complemento">
+			</label>
+			<label class="item item-input item-select">
+				<div class="input-label color-positive"> Cidade </div>
+				<select ng-model="user.endereco.cidade">
+					<option> Goiânia </option>
+					<option> Aparecida de Goiânia </option>
+					<option> Hidrolândia </option>
+				</select>
+			</label>
+			<label class="intem item-input item-stacked-label">
+				<span class="input-label">CEP </span>
+				<input type="number" placeholder="..." ng-model="user.endereco.cep">
+			</label>
+			</ion-list>
+		</ion-content>
+		<ion-footer-bar class="" style="padding: 0px; border: 0px;">
+  			<div class="title" style="margin: 0px; height: 44px;">
+  				<button class="button button-footer button-calm button-full" ng-disabled="solicitacaoDisabled(user)" ng-click="solicitacao()"><b><i class="icon ion-android-cart"></i> &nbsp;Solicitar CIE </b></button>
+  			</div>
+		</ion-footer-bar>
+	</ion-modal-view>
+</script>
+
+<script id="meia-entrada.html" type="text/ng-template">
+	<ion-modal-view ng-controller="MeiaEntradaCtrl">
+		<ion-header-bar class="bar bar-positive">
+			<button class="button button-icon icon ion-ios-arrow-back" ng-click="hideModal('MeiaEntrada')"></button>
+			<h1 class="title"> Lei da Meia Entrada </h1>
+		</ion-header-bar>
+		<ion-content class="padding">
+			<div>
+				<p class="text-format" ng-repeat="paragraph in lei_meia_entrada.introducao.paragraph"> {{paragraph}} </p>
+			<div>
+			<div ng-repeat="propriedade in lei_meia_entrada.body">
+				<h2 class="color-positive"><i class="icon ion-information-circled"></i>&nbsp;{{propriedade.title}} </h2>
+				<p class="text-format">{{propriedade.text}} </p>
+			</div>
+		</ion-content>
+	</ion-modal-view>
+</script>
+
+<script id="solicitacao.html" type="text/ng-template">
+	<ion-modal-view ng-controller="SolicitacaoCtrl">
+		<ion-header-bar class="bar bar-positive">
+			<button class="button button-icon icon ion-ios-arrow-back" ng-click="hideModal('Solicitacao')"></button>
+			<h1 class="title"> Solicitação de CIE </h1>
+		</ion-header-bar>
+		<ion-content>
+			<div class="padding color-positive">
+				<div>
+					<br>
+					<h3 class="text-center color-positive"> Escolha a(s) versão(ões) desejada(s) da sua<strong> Carteira de Identificação Estudantil </strong></h3><br>
+				</div>
+				<div class="wrapper-checkbox" ng-init="checkboxVersaoImpressa=false; checkboxVersaoDigital=false;">
+					<ion-checkbox style="border: none; width: 140px;" ng-model="checkboxVersaoDigital" class="checkbox-positive color-positive">
+						<i class="icon ion-iphone"></i>
+						Digital 
+					</ion-checkbox>
+					<ion-checkbox style="border: none;  width: 250px;" class="checkbox-positive color-positive" ng-model="checkboxVersaoImpressa">
+						<i class="icon ion-card"></i>
+						Impressa em PVC 
+					</ion-checkbox>
+					<em style="margin-left: 57px; color: #aaaaaa;"><i class="icon ion-android-bus"></i>Frete: R$ {{frete}}</em>
+				</div>
+				<br>
+				<div style="font-size: 20px;">
+					<p class="pull-right"><i class="icon ion-cash"></i> <strong>Total:</strong> R$ <label style="font-size: 20px;" ng-bind="valorPagar(checkboxVersaoDigital,checkboxVersaoImpressa)">  </label><p>
+				</div>
+				<br>
+				<div>
+					<br>
+					<h5 class="text-primary"><strong>Forma de Pagamento:</strong> &nbsp; Boleto Bancário</h5>
+					<input class="button button-block button-positive" type="submit" value="Solicitar" ng-click="solicitar()" ng-disabled="!(checkboxVersaoDigital || checkboxVersaoImpressa)">
+				</div>
+			</div>
+		</ion-content>
+	</ion-modal-view>
+</script>

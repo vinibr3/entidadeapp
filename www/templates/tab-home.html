@@ -1,0 +1,86 @@
+<ion-view view-title="UEE-GO">
+  <ion-nav-buttons side="primary">
+    <button class="button button-icon icon ion-location" ng-click="showMap()"> </button>
+  </ion-nav-buttons> 
+  <ion-content>  
+    <div class="list card">
+       <div class="item">
+        <img src="img/logo-uee-go.png" class="img-responsive">
+      </div>
+      <div class="item item-text-wrap">
+        <p class="text-format">
+        A <strong>União Estadual dos Estudantes <abbr>(UEE)</abbr></strong> é uma entidade 
+        estudantil filiada a <strong>União Nacional dos Estudantes <abbr>(UNE)</abbr>, 
+        </strong> que  representa todos os estudantes 
+        de ensino superior num determinado estado brasileiro.
+        </p>
+        <p class="text-format">
+        A eleição de seus membros é definida pelo Movimento Estudantil 
+        regional e costuma se dar de forma indireta
+        através de delegados de alunos das instituições de ensino.
+        </p>
+        <p class="text-format">
+        A composição da diretoria (ou coordenação) pode ser na forma 
+        majoritária ou na forma proporcional, conforme a 
+        previsão estatuária da entidade.
+        </p>
+      </div>
+    </div>
+    <div class="list card">
+      <div class="item item-divider">
+        Histórico
+        <i class="icon ion-filing pull-right"></i>
+        <small class="pull-right"> 60 anos &nbsp;</small> 
+      </div>
+      <div class="item item-text-wrap">
+        <p class="text-format">
+        A <strong> União Estadual dos Estudantes de Goiás</strong> é a entidade representativa dos estudantes no estado de Goiás há mais de 60 anos. Suas principais lutas estão relacionadas ao passe livre para estudantes no transporte coletivo, ensino superior de qualidade e o cumprimento dos direitos estudantis junto as Instituições de Ensino Superior públicas e privadas, Secretaria da Educação e Ministério da Educação.
+        </p>
+      </div>
+    </div>
+    <div class="list card">
+      <div class="item item-divider">
+            Contato
+        <button class="button button-icon icon ion-android-person-add pull-right" ng-click="adicionaUeeToContatos()"> </button>
+      </div>
+        <a class="item item-text-wrap" ng-click="showMap()">
+              {{contato.endereco.logradouro}}&nbsp;{{contato.endereco.numero}}<br>
+              {{contato.endereco.setor}} <br> 
+              {{contato.endereco.cidade}} | {{contato.endereco.uf}} <br>
+              CEP:&nbsp;{{contato.endereco.cep}}
+        </a>
+        <a class="item item-icon-left" ng-href="tel:+55-62-8557-8858"> 
+          <i class="icon ion-social-whatsapp icon-positive"> </i>{{contato.whatsapp}}
+        </a>
+        <a class="item item-icon-left" ng-href="tel:+55-62-3434-2012"> 
+          <i class="icon ion-ios-telephone icon-positive"> </i>{{contato.telefone}}
+        </a>
+        <a class="item item-icon-left" ng-href="mailto:contato@ueego.com.br"> 
+          <i class="icon ion-email icon-positive"> </i>{{contato.email}}
+        </a> 
+    </div>
+    <div class="list card">
+      <div class="item item-divider" >
+        Redes Sociais
+        <i class="icon ion-network pull-right"></i>
+      </div>
+      <div class="item" style="padding: 0px;">
+        <div class="row text-center">
+          <div class="col">
+            <a class="button button-icon icon ion-social-twitter icon-positive" ng-click="showInAppBrowser('https://www.twitter.com/ueego')" ></a>
+          </div>
+          <div class="col">
+            <a class="button button-icon icon ion-social-facebook icon-positive" ng-click="showInAppBrowser('https://www.facebook.com/ueego')"></a>
+          </div>
+          <div class="col">
+            <a class="button button-icon icon ion-social-instagram icon-positive" ng-click="showInAppBrowser('http://www.instagram.com/ueego')"></a>
+          </div>
+          <div class="col">
+            <a class="button button-icon icon ion-social-youtube icon-positive" ng-click="showInAppBrowser('http://www.youtube.com/user/ueetv')"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
+

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)http://ngcordova.com/docs/plugins/camera/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="ionic,html5,cordova,phonegap,angularjs,ionic framework,geolocation">
+	<meta name="description" content="ngCordova - Simple and powerful AngularJS Services for Cordova and Phonegap">
+	<meta name="author" content="Ionic Framework">
+	<meta property="og:title" content="ngCordova - Cordova Plugins with AngularJS Magic">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="http://ngcordova.com/img/ngcordova-logo.png">
+	<link rel="shortcut icon" href="http://ngcordova.com/img/favicon.ico">
+
+	<title>DOCS | ngCordova</title>
+
+	<link href="./DOCS _ ngCordova_files/bootstrap.min.css" rel="stylesheet">
+	<link href="./DOCS _ ngCordova_files/ionicons.min.css" rel="stylesheet">
+	<link href="./DOCS _ ngCordova_files/site.css" rel="stylesheet">
+	<link href="./DOCS _ ngCordova_files/syntax.css" rel="stylesheet">
+
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+<script type="text/javascript" charset="utf-8" async="" src="./DOCS _ ngCordova_files/button.b059c0eb61ea902a882e5c5b3c66a17a.js"></script></head>
+
+<body>
+
+<div class="wrapper">
+
+	<nav class="navbar">
+		<div class="container nav-container">
+			<a class="masthead-brand" href="http://ngcordova.com/"><img src="./DOCS _ ngCordova_files/ngcordova-logo.png" alt="ngCordova"></a>
+			<ul class="nav masthead-nav">
+				<li class="active"><a href="http://ngcordova.com/docs/">Docs</a></li>
+				<li><a href="http://ngcordova.com/build">Custom Build</a></li>
+				<li><a href="http://ionicframework.com/" target="_blank">Ionic</a></li>
+				<li><a href="https://github.com/driftyco/ng-cordova/" target="_blank">GitHub</a></li>
+				<li class="nav-search-bar">
+					<label for="searchInput" class="sronly">Search Docs</label>
+					<input class="nav-input" type="text" placeholder="Search docs" id="searchInput"><i class="ion-ios-search"></i>
+					<ul class="results-dropdown" id="searchResults" style="display: none;">
+						<script async="" src="./DOCS _ ngCordova_files/analytics.js"></script><script id="twitter-wjs" src="./DOCS _ ngCordova_files/widgets.js"></script><script id="template" type="text/html">
+							<li><a href="<%= link %>"><%= title %></a></li>
+						</script>
+					</ul>
+					<ul class="no-results-dropdown" id="noSearchResults">
+						<li>No results found</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container docs-container">
+		<div class="row">
+			<div class="col-sm-3">
+				<div class="docked-menu">
+					<ul class="nav left-menu">
+						<li class="menu-title">
+							<a href="http://ngcordova.com/docs/">Overview</a>
+						</li>
+					</ul>
+					<ul class="nav left-menu">
+						<li class="menu-title">
+							<a href="http://ngcordova.com/docs/install/">Install</a>
+						</li>
+					</ul>
+					<ul class="nav left-menu">
+						<li class="menu-title">
+							<a href="http://ngcordova.com/docs/common-issues/">Common Issues</a>
+						</li>
+					</ul>
+					<ul class="nav left-menu active-menu">
+						<li class="menu-title">
+							<a href="http://ngcordova.com/docs/plugins/">Plugins</a>
+						</li>
+						<ul id="pluginsList">
+							<li><a href="http://ngcordova.com/docs/plugins/actionSheet/">Action Sheet</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/adMob/">AdMob</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/appAvailability/">App Availability</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/appRate/">App Rate</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/appVersion/">App Version</a></li>
+                            <li><a href="http://ngcordova.com/docs/plugins/badge/">Badge</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/backgroundGeolocation/">Background Geoloc</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/batteryStatus/">Battery Status</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/barcodeScanner/">Barcode Scanner</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/calendar/">Calendar</a></li>
+							<li class="active"><a href="http://ngcordova.com/docs/plugins/camera/">Camera</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/capture/">Capture</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/clipboard/">Clipboard</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/contacts/">Contacts</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/datePicker/">Date Picker</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/device/">Device</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/deviceMotion/">Device Motion</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/deviceOrientation/">Device Orientation</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/dialogs/">Dialogs</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/emailComposer/">Email Composer</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/facebook/">Facebook</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/file/">File</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/fileTransfer/">File Transfer</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/fileOpener2/">FileOpener2</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/flashlight/">Flashlight</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/geolocation/">Geolocation</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/globalization/">Globalization</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/googleAnalytics/">Google Analytics</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/healthkit/">HealthKit</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/beacon/">iBeacon</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/imagePicker/">Image Picker</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/inAppBrowser/">In App Browser</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/instagram/">Instagram</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/keyboard/">Keyboard</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/keychain/">Keychain</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/launchNavigator/">Launch Navigator</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/localNotification/">Local Notification</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/media/">Media</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/nativeAudio/">Native Audio</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/network/">Network</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/oauth/">OAuth</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/pinDialog/">Pin Dialog</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/preferences/">Preferences</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/printer/">Printer</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/progressIndicator/">Progress Indicator</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/pushNotifications/">Push Notifications</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/sms/">SMS</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/socialSharing/">Social Sharing</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/spinnerDialog/">Spinner Dialog</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/splashscreen/">Splashscreen</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/sqlite/">SQLite</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/statusbar/">StatusBar</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/toast/">Toast</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/touchID/">TouchID</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/vibration/">Vibration</a></li>
+							<li><a href="http://ngcordova.com/docs/plugins/zip/">ZIP</a></li>
+						</ul>
+					</ul>
+				</div>
+			</div>
+			<div class="col-sm-9">
+				
+
+				<div class="anchor-row">
+					<h3><code>$cordovaCamera</code></h3>
+
+					<div class="button-row">
+						<a class="btn-anchor" href="https://github.com/driftyco/ng-cordova/blob/master/src/plugins/camera.js">Source</a>
+						<a class="btn-anchor" href="https://github.com/apache/cordova-plugin-camera">Official Docs</a>
+					</div>
+					<div class="icon-row">
+						<i class="icon ion-social-apple"></i>
+						<i class="icon ion-social-android"></i>
+						<i class="icon ion-social-windows"></i>
+					</div>
+				</div>
+				
+
+
+				<div class="plugin-content">
+					<p>This service makes it easy to use the <a href="https://github.com/apache/cordova-plugin-camera"><code>cordova-plugin-camera</code></a> plugin to take pictures and video
+from a device.</p>
+
+<blockquote>
+<p><strong>NOTE</strong>: The camera API only works on a real device, and not in the emulator.</p>
+</blockquote>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">cordova plugin add cordova-plugin-camera
+</code></pre></div>
+<h4>Methods</h4>
+
+<h5><code>getPicture(options)</code></h5>
+
+<p><a href="https://github.com/apache/cordova-plugin-camera#module_camera.CameraOptions">View Camera Options</a></p>
+
+<table><thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Detail</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>options</td>
+<td><code>Object</code></td>
+<td>Camera options</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<table><thead>
+<tr>
+<th>Options</th>
+<th>Type</th>
+<th>Detail</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>quality</td>
+<td><code>Number</code></td>
+<td>Quality of the saved image, range of <code>0</code> - <code>100</code></td>
+</tr>
+<tr>
+<td>destinationType</td>
+<td><code>Number</code></td>
+<td>Format of the return value</td>
+</tr>
+<tr>
+<td>sourceType</td>
+<td><code>Number</code></td>
+<td>Set the source of the picture</td>
+</tr>
+<tr>
+<td>allowEdit</td>
+<td><code>Boolean</code></td>
+<td>Allow simple editing of image before selection</td>
+</tr>
+<tr>
+<td>encodingType</td>
+<td><code>Number</code></td>
+<td>JPEG = <code>0</code>, PNG = <code>1</code></td>
+</tr>
+<tr>
+<td>targetWidth</td>
+<td><code>Number</code></td>
+<td>Width to scale image (pixels). Used with <code>targetHeight</code></td>
+</tr>
+<tr>
+<td>targetHeight</td>
+<td><code>Number</code></td>
+<td>Height to scale image (pixels). Used with <code>targetHeight</code></td>
+</tr>
+<tr>
+<td>mediaType</td>
+<td><code>String</code></td>
+<td>Set the type of media to select from</td>
+</tr>
+<tr>
+<td>cameraDirection</td>
+<td><code>Number</code></td>
+<td>Back = <code>0</code>, Front-facing = <code>1</code></td>
+</tr>
+<tr>
+<td>popoverOptions</td>
+<td><code>String</code></td>
+<td>iOS-only options that specify popover location in iPad</td>
+</tr>
+<tr>
+<td>saveToPhotoAlbum</td>
+<td><code>Boolean</code></td>
+<td>Save image to photo album on the device</td>
+</tr>
+<tr>
+<td>correctOrientation</td>
+<td><code>Boolean</code></td>
+<td>correct camera captured images in case wrong orientation</td>
+</tr>
+</tbody></table>
+</blockquote>
+
+<p><strong>Returns</strong>  <code>Object</code> with image data</p>
+
+<h4>Examples</h4>
+
+<h6>Retrieve photo as a <strong>base64-encoded image</strong></h6>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">module</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'PictureCtrl'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$cordovaCamera</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"deviceready"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+
+    <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">quality</span><span class="o">:</span> <span class="mi">50</span><span class="p">,</span>
+      <span class="nx">destinationType</span><span class="o">:</span> <span class="nx">Camera</span><span class="p">.</span><span class="nx">DestinationType</span><span class="p">.</span><span class="nx">DATA_URL</span><span class="p">,</span>
+      <span class="nx">sourceType</span><span class="o">:</span> <span class="nx">Camera</span><span class="p">.</span><span class="nx">PictureSourceType</span><span class="p">.</span><span class="nx">CAMERA</span><span class="p">,</span>
+      <span class="nx">allowEdit</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nx">encodingType</span><span class="o">:</span> <span class="nx">Camera</span><span class="p">.</span><span class="nx">EncodingType</span><span class="p">.</span><span class="nx">JPEG</span><span class="p">,</span>
+      <span class="nx">targetWidth</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
+      <span class="nx">targetHeight</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
+      <span class="nx">popoverOptions</span><span class="o">:</span> <span class="nx">CameraPopoverOptions</span><span class="p">,</span>
+      <span class="nx">saveToPhotoAlbum</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="nx">correctOrientation</span><span class="o">:</span><span class="kc">true</span>
+    <span class="p">};</span>
+
+    <span class="nx">$cordovaCamera</span><span class="p">.</span><span class="nx">getPicture</span><span class="p">(</span><span class="nx">options</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">imageData</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">image</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'myImage'</span><span class="p">);</span>
+      <span class="nx">image</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">"data:image/jpeg;base64,"</span> <span class="o">+</span> <span class="nx">imageData</span><span class="p">;</span>
+    <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// error</span>
+    <span class="p">});</span>
+
+  <span class="p">},</span> <span class="kc">false</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+<h6>Retrieve the image's <strong>file location</strong></h6>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">module</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'PictureCtrl'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$cordovaCamera</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"deviceready"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+
+    <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">destinationType</span><span class="o">:</span> <span class="nx">Camera</span><span class="p">.</span><span class="nx">DestinationType</span><span class="p">.</span><span class="nx">FILE_URI</span><span class="p">,</span>
+      <span class="nx">sourceType</span><span class="o">:</span> <span class="nx">Camera</span><span class="p">.</span><span class="nx">PictureSourceType</span><span class="p">.</span><span class="nx">CAMERA</span><span class="p">,</span>
+    <span class="p">};</span>
+
+    <span class="nx">$cordovaCamera</span><span class="p">.</span><span class="nx">getPicture</span><span class="p">(</span><span class="nx">options</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">imageURI</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">image</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'myImage'</span><span class="p">);</span>
+      <span class="nx">image</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">imageURI</span><span class="p">;</span>
+    <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// error</span>
+    <span class="p">});</span>
+
+
+    <span class="nx">$cordovaCamera</span><span class="p">.</span><span class="nx">cleanup</span><span class="p">().</span><span class="nx">then</span><span class="p">(...);</span> <span class="c1">// only for FILE_URI</span>
+
+  <span class="p">},</span> <span class="kc">false</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="mastfoot">
+	<img class="footer-hr" src="./DOCS _ ngCordova_files/footer-divider.png" width="650" height="41" alt="">
+
+	<div class="footer-links">
+		<ul>
+			<li><iframe allowtransparency="true" scrolling="no" frameborder="0" style="border: none; height: 20px; width: 90px;" src="./DOCS _ ngCordova_files/buttons.html"></iframe></li>
+			<li><iframe allowtransparency="true" scrolling="no" frameborder="0" style="border: none; height: 20px; width: 85px;" src="./DOCS _ ngCordova_files/buttons(1).html"></iframe></li>
+			<li><iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-follow-button twitter-follow-button-rendered" title="Twitter Follow Button" src="./DOCS _ ngCordova_files/follow_button.baa54ded21a982344c4ced326592f3de.en.html" style="position: static; visibility: visible; width: 150px; height: 20px;" data-screen-name="ionicframework"></iframe></li>
+		</ul>
+	</div>
+
+	<div class="footer-text">
+		<p>Built with <i class="icon ion-heart"></i> by <a href="http://ionicframework.com/" target="_blank">Ionic</a>, with help from <a href="https://github.com/driftyco/ng-cordova/graphs/contributors" target="_blank">these
+			awesome
+			people</a>.</p>
+	</div>
+</div>
+
+<script src="./DOCS _ ngCordova_files/jquery.min.js"></script>
+<script src="./DOCS _ ngCordova_files/bootstrap.js"></script>
+<script src="./DOCS _ ngCordova_files/filter.min.js"></script>
+
+<script async="" defer="" id="github-bjs" src="./DOCS _ ngCordova_files/buttons.js"></script>
+<script>!function (d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+	if (!d.getElementById(id)) {
+		js = d.createElement(s);
+		js.id = id;
+		js.src = p + '://platform.twitter.com/widgets.js';
+		fjs.parentNode.insertBefore(js, fjs);
+	}
+}(document, 'script', 'twitter-wjs');</script>
+
+<script src="./DOCS _ ngCordova_files/main.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44023830-7', 'ngcordova.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+<iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;"></iframe></body></html>

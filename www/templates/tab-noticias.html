@@ -1,0 +1,15 @@
+<ion-view view-title="Notícias">
+  <ion-nav-buttons side="primary">
+    <!-- <i class="button button-icon icon ion-android-search" ng-click=""></i> -->
+    <button class="button button-icon icon ion-android-refresh" ng-click="refresh()"></button>
+  </ion-nav-buttons>
+  <ion-content>
+    <ion-list class="list">
+      <ion-item class="item item-thumbnail-left item-text-wrap" ng-repeat="noticia in noticias" type="item-text-wrap" href="#/tab/noticias/{{noticia.id}}">
+        <img class="img-responsive" ng-src="{{noticia.photo}}">
+        <h2>{{noticia.title}}</h2>
+        <p style="margin-top: 12px;">{{noticia.date}} <i class="icon ion-checkmark pull-right" ng-show="noticia.read"></i></p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

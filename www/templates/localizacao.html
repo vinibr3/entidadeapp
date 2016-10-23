@@ -1,0 +1,28 @@
+<ion-view view-title="Localização">
+ <ion-content>
+    <div class="list card">
+      <div id="map_canvas" style="width:90%;margin-left:10%;height:500px;margin-top:50px;" id="map_canvas"></div>
+      <div class="item item-divider">
+            Contato
+        <button class="button button-icon icon ion-android-person-add pull-right" ng-click="adicionaUeeToContatos()"> </button>
+      </div>
+      <div class="item item-text-wrap">
+            {{contato.endereco.logradouro}}&nbsp;{{contato.endereco.numero}}<br>
+            {{contato.endereco.setor}}} <br> 
+            {{contato.endereco.cidade}} | {{contato.endereco.uf}} <br>
+            CEP:&nbsp;{{contato.endereco.cep}}
+      </div>
+        <a class="item item-icon-left" ng-href="tel:+55-62-8557-8858"> 
+          <i class="icon ion-social-whatsapp icon-positive"> </i>{{contato.whatsapp}}
+        </a>
+        <a class="item item-icon-left" ng-href="tel:+55-62-3434-2012"> 
+          <i class="icon ion-ios-telephone icon-positive"> </i>{{contato.telefone}}
+        </a>
+        <a class="item item-icon-left" ng-href="mailto:contato@ueego.com.br"> 
+          <i class="icon ion-email icon-positive"> </i>{{contato.email}}
+        </a>
+    </div>     
+  </ion-content>
+</ion-view> 
+      
+      
