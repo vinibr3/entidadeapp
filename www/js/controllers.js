@@ -65,8 +65,6 @@ angular.module('starter.controllers', [])
   });
 
   $scope.cadastarDepois = function(){
-    var usuario = Usuario.getInstance();
-    Usuario.setObject(usuario);
     $state.go('tab.home');
   };
 
@@ -150,6 +148,10 @@ angular.module('starter.controllers', [])
 
   $scope.adicionaUeeToContatos = function(){
     showConfirm('Contato', 'Deseja adicionar UEEGO aos seus contatos?');
+  }
+
+  $scope.usuarioLogado = function(){
+    return Usuario.logado();
   }
 
   $scope.showMap = function(){
@@ -334,7 +336,7 @@ angular.module('starter.controllers', [])
   }
 
   $scope.solicitacao = function(){
-    if(Usuario.logado){
+    if(Usuario.logado()){
       if(Usuario.filledData($scope.user)){
         $scope.hideModal('MeusDados');
         $scope.checkout($scope.user.id);
@@ -351,6 +353,28 @@ angular.module('starter.controllers', [])
 
   }
 
+  $scope.usuarioLogado = function(){
+    return Usuario.logado();
+  }
+
+  $scope.usuarioNaoLogadoOuLogadoSemCarteirinha = function(){
+    if (!$scope.usuarioLogado()){
+      return true;
+    }else{
+      var usuario = Usuario.getObject();
+      return usuario['carteirinha'] == '';
+    }
+  }
+
+  $scope.usuarioTemCarteirinha = function(){
+    var usuario = Usuario.getObject();
+    return Usuario.logado() && usuario['carteirinha'] != ''
+  }
+
+  $scope.loadLayoutCarteirinha = function(){
+
+  }
+
   $scope.MeusDados = function(){
     $scope.openModal('MeusDados');
   }
@@ -361,15 +385,6 @@ angular.module('starter.controllers', [])
     $scope.modalSolicitacao.remove();
     $scope.modalCadastro.remove();
   });
-
-  $scope.init = function(){
-    Usuario.init();
-  }
-
-  $scope.estudanteAuthenticated = function(){
-    console.log("Usuario "+!Usuario.logado());
-    return !Usuario.logado();
-  }
 
   function showAlert(title,message){
     var alertPopup = $ionicPopup.alert({

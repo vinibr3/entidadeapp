@@ -164,87 +164,11 @@ input::-webkit-input-placeholder{
 	font-size: 20px;
 }
 
-.flip-cart{
-	-webkit-perspective: 1000px;
-	perspective: 1000px;
+.icon-carteirinha {
+	font-size: 50px;
+	color: #316AAC;
 }
 
-.flip-cart, .front, .back{
-	width: 326px;
-	height: 500px;
-	margin: auto;
-	padding: 0px;
-	border: 0px;
-}
-
-#cart{
-	width: 326px;
-	height: 500px;
-	transition: 1.5s;
-	-webkit-transform: 2s;
-	transform-style: preserve-3d;
-	-webkit-transform-style: preserve-3d;
-	transform-origin: 100% 250px;
-	-webkit-transform-origin: 100% 250px;
-}
-
-.front, .back{
-	backface-visibility: hidden;
-	position: absolute;
-	border-radius: 10px;
-}
-
-.front{
-	z-index: 2;
-}
-
-.back{
-	transform: rotateX(180deg);
-	-webkit-transform: rotateX(180deg);
-}
-
-.carteirinha-data{
-	margin-top: 125px;
-	margin-left: -80px;
-	width: 420px; 
-	height: 250px;
-	position: relative;
-}
-
-.carteirinha-foto{
-	margin-top: 6px;
-	float: left;
-}
-
-.carteirinha-data-right{
-	width: 280px; 
-	height: 163px;
-	float: right;
-	position: relative;
-}
-
-.carteirinha-value{
-	width: 280px; 
-	height: 30px;
-	padding: 5px 0px 5px 0px;
-	margin: 6px 0px 6px 0px;
-}
-
-.qr-code{
-	margin-top: 17px;
-	margin-left: 11px;
-	width: 70px; 
-	height: 70px;
-	float: left;
-	position: absolute;
-}
-
-.numero-serie{
-	width: 120px; 
-	height: 25px;
-	float: right;
-	text-align: center;
-	margin-top: 38px;
-	margin-right: 110px;
-	position: relative;
+.container-calm{
+	background-color: #11c1f3;
 }

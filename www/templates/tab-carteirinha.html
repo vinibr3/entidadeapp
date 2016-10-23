@@ -1,11 +1,33 @@
 <ion-view view-title="Carteirinha">
   <ion-nav-buttons side="primary">
-  	<button class="button button-icon icon ion-pin" ng-click="meiaEntrada()"></button>
+  	<button class="button button-icon icon ion-information-circled" ng-click="meiaEntrada()"></button>
   	<button class="button button-icon icon ion-android-cart" ng-click="solicitacao()"></button>
-  	<button class="button button-icon icon ion-person" ng-click="MeusDados()" ng-show="estudanteAuthenticated()"> </button>
+  	<button class="button button-icon icon ion-person" ng-click="MeusDados()" ng-show="usuarioLogado()"> </button>
   </ion-nav-buttons>
   <ion-content class="padding">
-    
+    <div class="text-center" ng-show='usuarioNaoLogadoOuLogadoSemCarteirinha()'>
+    	<h2 class="text-primitive color-positive"> Carteira de Identificação Estudantil </h2>
+    	<img src="img/carteirinha.jpg" class="img img-responsive">
+	    <h3> Solicite a sua <span><strong> agora! </strong></span> </h3>
+	    <h3> Garanta meia-entrada em: </h3>
+	    <div class="padding">
+	    	<div class="row">
+		    	<div class="col"><i class="icon icon-carteirinha ion-film-marker"><br></i>Cinemas</div>
+		    	<div class="col"><i class="icon icon-carteirinha ion-music-note"><br></i>Shows e Eventos</div>
+		    </div>
+		    <div class="row">
+		    	<div class="col"><i class="icon icon-carteirinha ion-ios-people"><br></i>Teatros </div>
+		    	<div class="col"><i class="icon icon-carteirinha ion-ios-football"><br></i>Jogos</div>
+		    </div>
+	    </div>
+    </div>
+    <div class="color-positive" ng-show='usuarioTemCarteirinha()'>
+    	<h2 class="text-center color-positive">Leia o Qr-Code abaixo para validar o Certificado de Atributo</h2> 
+    	<div class="padding">
+    		<img src="img/qr-code.png" class="img img-responsive">
+    	</div>
+    	<small> Certificado de Atributo no padrão <strong> Instituto Nacional de Tecnologia da Informação </strong>conforme a Lei 12.933 de 2013. </small> 
+    </div>
   </ion-content>
 </ion-view>
 

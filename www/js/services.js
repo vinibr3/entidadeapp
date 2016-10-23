@@ -98,25 +98,16 @@ angular.module('starter.services', [])
 
   return {
     logado: function(){
-      console.log("usuario: "+$localStorage.getObject(KEY));
-      return $localStorage.getObject(KEY) != null;
-    },
-    init: function(){
-      if(empty){
-        $localStorage.setObject(KEY,USUARIO);
-      }
+      return ($localStorage.getObject(KEY) != undefined) && ($localStorage.getObject(KEY) != null);
     },
     logoff: function(){
-      return $localStorage.setObject(KEY, null);
+      return $localStorage.setObject(KEY, undefined);
     },
     setObject: function(user){
       $localStorage.setObject(KEY, user);
     },
     getObject: function(){
       return $localStorage.getObject(KEY);
-    },
-    getInstance: function(){
-      return USUARIO;
     },
     filledData: function(user){
       var propriedades = ["nome","email","nascimento","cpf","rg_certidao","sexo","telefone","celular","foto","xerox_rg_certidao","instituicao_ensino","curso_serie","matricula","comprovante_matricula","access_token"];
